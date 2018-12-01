@@ -12,10 +12,6 @@ app.config(function ($routeProvider) {
             .when("/menu/:CategoryID", {
                 templateUrl: "template/menuDetail.html",
                 controller: "menuDetailCtrl"
-            })
-            .when("/mtg", {
-                templateUrl: "template/mtg.html",
-                controller: "mtgCtrl"
             });
 });
 
