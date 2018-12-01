@@ -1,0 +1,36 @@
+.bold {
+    font-weight: 700;
+}
+.over-opacity {
+    opacity: 0.8;    
+}
+.over-opacity:hover {
+    opacity: 1;
+}
+.cursor-pointer:hover {
+    cursor: pointer;
+}
+.center {
+    text-align: center;
+}
+.link {
+    display: inline-block;
+    user-select: none;
+    padding: .375rem .75rem;
+}
+.link:hover {
+    text-decoration: none;
+}
+.footer {
+    background-color: lightgrey;
+    position: fixed;
+    bottom: 0;
+    padding: 20px;
+    width: 100%;
+}
+.box-shadow {
+    box-shadow: 2px 2px 10px lightgrey;
+}
+.c-lightblue {
+    color: #007bff;
+}

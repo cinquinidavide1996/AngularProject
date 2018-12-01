@@ -1,0 +1,113 @@
+<div class="m-15">
+    <a 
+        class="link" 
+        href="#!menu">
+        <i class="
+           fas 
+           fa-arrow-left">
+
+        </i>
+        Go back
+    </a>
+    <a 
+        class="
+        link 
+        cursor-pointer
+        over-opacity" 
+        ng-click="refresh()"
+        >
+        <i class="
+           fas 
+           fa-sync-alt">
+
+        </i>
+        Refresh data
+    </a>
+
+    <hr>
+    <div 
+        ng-repeat="(k,d) in data" 
+        class="row pt-20">
+        <div class="
+             col-xl-2
+             col-lg-1
+             col-md-1
+             col-sm-1
+             ">
+
+        </div>
+
+        <div class="
+             col-xl-8
+             col-lg-10
+             col-md-10
+             col-sm-10
+             col-xs-12
+             ">
+
+            <div class="
+                 row 
+                 pl-20">
+                <div>
+                    <h3>
+                        {{k}}
+                    </h3>
+                </div>
+            </div>
+
+
+            <table class="
+                   table 
+                   center">
+                <thead class='thead-dark'>
+                    <tr>
+                        <th class='wp-40'>
+                            Piatto
+                        </th>
+                        <th class='wp-40'>
+                            Prezzo
+                        </th>
+                        <th class='wp-20'>
+                            Tempo
+                        </th>
+                        <th class='wp-20'>
+                            Ordina
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class='thead-light'>
+                    <tr ng-repeat="r in d">
+                        <td class='bold'>
+                            {{r.name}}
+                        </td>
+                        <td>
+                            {{r.price}}
+                        </td>
+                        <td>
+                            {{r.time}}
+                        </td>
+                        <td>
+                            <button ng-click="addToCart(r.ID)" class="
+                                    btn 
+                                    btn-outline-secondary 
+                                    btn-sm">
+                                Ordina
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="
+             col-xl-2
+             col-lg-1
+             col-md-1
+             col-sm-1
+             ">
+
+        </div>
+    </div>
+
+</div>
