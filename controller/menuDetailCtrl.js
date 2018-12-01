@@ -1,4 +1,9 @@
-app.controller('menuDetailCtrl', function ($scope, $routeParams, $http) {
+app.controller('menuDetailCtrl', function ($scope, $rootScope, $routeParams, $http) {
+
+    $rootScope.pageTitle = 'Listino';
+    $rootScope.metaDescription = '';
+    $rootScope.metaKeywords = '';
+
     $http.defaults.cache = cache;
     var CategoryID = $routeParams.CategoryID;
 

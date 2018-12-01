@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="listino">
     <head>
-
-        <title>Listino</title>
+        
+        <!-- seo -->
+        <title>{{ pageTitle }}</title>
+        <meta name="description" content="{{ metaDescription }}" />
+        <meta name="keywords" content="{{ metaKeywords }}" />
+        <!-- end seo -->
+        
         <!-- meta -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- end meta -->
-        
+
         <!-- main css -->
         <link rel="stylesheet" type="text/css" href="public/css/main.css">
         <!-- end main css -->
     </head>
-    
-    <body ng-app="listino">
-        
+
+    <body>
+
         <!-- header -->
         <div ng-include="'public/html/header.html'"></div>
         <!-- end header -->
@@ -22,7 +27,7 @@
         <div ng-view>
             <!--content-->
         </div>
-        
+
         <!-- libreies include -->
         <script src="public/lib/JQuery/jquery-slim-3-1-1.min.js"></script>
         <script src="public/lib/PopperJS/popper-1-14-3.min.js"></script>
@@ -37,11 +42,15 @@
         <script src="main/cache.js"></script>
         <script src="public/js/main.js"></script>
         <!-- end main script include -->
+
+        <!-- services include -->
         
+        <!-- end services include -->
+
         <!-- controllers include -->
         <script src="controller/menuCtrl.js"></script>
         <script src="controller/menuDetailCtrl.js"></script>
         <!-- end controllers include -->
-        
+
     </body>
 </html>

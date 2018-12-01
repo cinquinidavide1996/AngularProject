@@ -1,4 +1,9 @@
-app.controller('menuCtrl', function ($scope, $location, $http) {
+app.controller('menuCtrl', function ($scope, $rootScope, $location, $http) {
+    
+    $rootScope.pageTitle = 'Listino';
+    $rootScope.metaDescription = '';
+    $rootScope.metaKeywords = '';
+    
     $http.defaults.cache = cache;
 
     $scope.detail = function (ID) {
