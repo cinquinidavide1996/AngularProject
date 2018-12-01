@@ -3,26 +3,21 @@
     <head>
 
         <title>Listino</title>
+        <!-- meta -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- end meta -->
+        
+        <!-- main css -->
         <link rel="stylesheet" type="text/css" href="public/css/main.css">
+        <!-- end main css -->
     </head>
     
     <body ng-app="listino">
-
-        <nav 
-            class="
-            header
-            navbar 
-            navbar-expand-lg 
-            navbar-light 
-            bg-light">
-            <a 
-                class="navbar-brand" 
-                href="#!">
-                Listino
-            </a>
-        </nav>
+        
+        <!-- header -->
+        <div ng-include="'public/html/header.html'"></div>
+        <!-- end header -->
 
         <div ng-view>
             <!--content-->
@@ -47,5 +42,6 @@
         <script src="controller/menuCtrl.js"></script>
         <script src="controller/menuDetailCtrl.js"></script>
         <!-- end controllers include -->
+        
     </body>
 </html>
