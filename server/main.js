@@ -1,127 +1,3 @@
-var order = [];
-var data = {
-    products: [{
-            'Antipasti': [{
-                    ID: 1,
-                    name: 'Insalata',
-                    price: '3,20�',
-                    description: '',
-                    img: 'assets/void.png',
-                    time: '10m'
-                }, {
-                    ID: 2,
-                    name: 'altro',
-                    price: '10,20�',
-                    description: '',
-                    img: 'assets/void.png',
-                    time: '10m'
-                }]
-        }, {
-            'Primo di Pesce': [
-                {
-                    ID: 3,
-                    name: 'Spaghetti alla Scoglio',
-                    price: '3,20�',
-                    description: '',
-                    img: 'assets/void.png',
-                    time: '10m'
-                }, {
-                    ID: 4,
-                    name: 'Spaghetti Bottarga',
-                    price: '3,20�',
-                    description: '',
-                    img: 'assets/void.png',
-                    time: '10m'
-                }
-            ],
-            'Primi di Carne': [{
-                    ID: 5,
-                    name: 'Spaghetti Rag�',
-                    price: '3,20�',
-                    description: '',
-                    img: 'assets/void.png',
-                    time: '10m'
-                }, {
-                    ID: 6,
-                    name: 'Spaghetti Rag� di Cinghiale',
-                    price: '3,20�',
-                    description: '',
-                    img: 'assets/void.png',
-                    time: '10m'
-                }
-            ]
-        }, {}, {
-            'Vini': [{
-                    ID: 7,
-                    name: 'Vino n�1',
-                    price: '3,20�',
-                    description: '',
-                    img: 'assets/void.png',
-                    time: '10m'
-                }, {
-                    ID: 8,
-                    name: 'Altro Vino',
-                    price: '3,20�',
-                    description: '',
-                    img: 'assets/void.png',
-                    time: '10m'
-                }, {
-                    ID: 9,
-                    name: 'Rosso',
-                    price: '3,20�',
-                    description: '',
-                    img: 'assets/void.png',
-                    time: '10m'
-                }
-
-            ],
-            'Birre': [
-                {
-                    ID: 10,
-                    name: 'Moretti',
-                    price: '3,20�',
-                    description: '',
-                    img: 'assets/void.png',
-                    time: '10m'
-                },
-                {
-                    ID: 11,
-                    name: 'Peroni',
-                    price: '3,20�',
-                    description: '',
-                    img: 'assets/void.png',
-                    time: '10m'
-                },
-                {
-                    ID: 12,
-                    name: 'Nastro Azzurro',
-                    price: '3,20�',
-                    description: '',
-                    img: 'assets/void.png',
-                    time: '10m'
-                }
-            ],
-            'Bibite': [
-                {
-                    ID: 13,
-                    name: 'Coca Cola',
-                    price: '3,20�',
-                    description: '',
-                    img: 'assets/void.png',
-                    time: '10m'
-                },
-                {
-                    ID: 14,
-                    name: 'Fanta',
-                    price: '3,20�',
-                    description: '',
-                    img: 'assets/void.png',
-                    time: '10m'
-                }
-            ]
-        }, {}]
-};
-
 var express = require('express');
 var mysql = require('mysql');
 var app = express();
@@ -149,7 +25,7 @@ app.get('/menu', function (req, res) {
             + "     isActive "
             + " FROM category "
             + " WHERE isActive = 1 ";
-    
+
     con.query(sql, function (err, result, field) {
         res = setHeader(res);
         res.send(result);
@@ -157,24 +33,42 @@ app.get('/menu', function (req, res) {
 });
 
 app.get('/menu/:CategoryID', function (req, res) {
-    res = setHeader(res);
-    res.send(data.products[req.params.CategoryID]);
-});
+    var sql = ""
+            + " SELECT "
+            + "     b.ID, "
+            + "     b.title, "
+            + "     b.price, "
+            + "     b.imgPath, "
+            + "     a.title AS typeTitle "
+            + " FROM test.type a "
+            + " JOIN test.product b ON b.TypeID = a.ID "
+            + " WHERE "
+            + "     a.isActive = 1 AND "
+            + "     a.CategoryID = ? ";
 
-//app.post('/menu/:ProductID', function(req, res) {
-//    res = setHeader(res);
-//    for (var i in data.products) {
-//        for (var d in i) {
-//            console.log(d);
-//            if (d.ID === req.params.ProductID) {
-//                order.push(d);
-//            }
-//        }
-//    }
-//    
-//    
-//    res.send(order);
-//});
+    con.query(sql, [req.params.CategoryID], function (err, result, field) {
+        res = setHeader(res);
+        response = {};
+
+        for (var i in result) {
+            var v = result[i];
+            if (response[v.typeTitle] === undefined) {
+                response[v.typeTitle] = [];
+            }
+            response[v.typeTitle].push({
+                ID: v.ID,
+                name: v.title,
+                price: v.price,
+                description: '',
+                img: v.imgPath,
+                time: '10m'
+            });
+        }
+
+        res.send(response);
+    });
+
+});
 
 app.listen(8080);
 
