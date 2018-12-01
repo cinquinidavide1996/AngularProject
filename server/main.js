@@ -23,7 +23,8 @@ app.get('/menu', function (req, res) {
 });
 
 app.get('/menu/:CategoryID', function (req, res) {
-    con.query(qMenuDetail(), [req.params.CategoryID], function (e, r, f) {
+    var CategoryID = parseInt(req.params.CategoryID);
+    con.query(qMenuDetail(), CategoryID, function (e, r, f) {
         res = setHeader(res);
         response = {};
 
