@@ -16,7 +16,7 @@ con.connect(function (err) {
 });
 
 app.get('/menu', function (req, res) {
-    con.query(queryMenu(), function (e, r, f) {
+    con.query(qMenu(), function (e, r, f) {
         res = setHeader(res);
         res.send(r);
     });
