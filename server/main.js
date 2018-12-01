@@ -16,42 +16,19 @@ con.connect(function (err) {
 });
 
 app.get('/menu', function (req, res) {
-    var sql = ""
-            + " SELECT "
-            + "     ID, "
-            + "     title, "
-            + "     description, "
-            + "     imgpath, "
-            + "     isActive "
-            + " FROM category "
-            + " WHERE isActive = 1 ";
-
-    con.query(sql, function (err, result, field) {
+    con.query(queryMenu(), function (e, r, f) {
         res = setHeader(res);
-        res.send(result);
+        res.send(r);
     });
 });
 
 app.get('/menu/:CategoryID', function (req, res) {
-    var sql = ""
-            + " SELECT "
-            + "     b.ID, "
-            + "     b.title, "
-            + "     b.price, "
-            + "     b.imgPath, "
-            + "     a.title AS typeTitle "
-            + " FROM test.type a "
-            + " JOIN test.product b ON b.TypeID = a.ID "
-            + " WHERE "
-            + "     a.isActive = 1 AND "
-            + "     a.CategoryID = ? ";
-
-    con.query(sql, [req.params.CategoryID], function (err, result, field) {
+    con.query(qMenuDetail(), [req.params.CategoryID], function (e, r, f) {
         res = setHeader(res);
         response = {};
 
-        for (var i in result) {
-            var v = result[i];
+        for (var i in r) {
+            var v = r[i];
             if (response[v.typeTitle] === undefined) {
                 response[v.typeTitle] = [];
             }
@@ -79,4 +56,30 @@ function setHeader(r) {
     r.setHeader('Access-Control-Allow-Origin', 'http://localhost');
     return r;
 }
-;
+
+function qMenu() {
+    return ""
+            + " SELECT "
+            + "     ID, "
+            + "     title, "
+            + "     description, "
+            + "     imgpath, "
+            + "     isActive "
+            + " FROM category "
+            + " WHERE isActive = 1 ";
+}
+
+function qMenuDetail() {
+    return ""
+            + " SELECT "
+            + "     b.ID, "
+            + "     b.title, "
+            + "     b.price, "
+            + "     b.imgPath, "
+            + "     a.title AS typeTitle "
+            + " FROM test.type a "
+            + " JOIN test.product b ON b.TypeID = a.ID "
+            + " WHERE "
+            + "     a.isActive = 1 AND "
+            + "     a.CategoryID = ? ";
+}
