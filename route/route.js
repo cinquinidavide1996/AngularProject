@@ -1,7 +1,6 @@
 var URL = conn.PROTOCOL + '://' + conn.IP + ':' + conn.PORT;
 
 var app = angular.module("listino", ["ngRoute"]);
-var cache = undefined;
 
 app.config(function ($routeProvider) {
     $routeProvider
