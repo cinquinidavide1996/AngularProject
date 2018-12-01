@@ -1,10 +1,7 @@
-app.controller('menuCtrl', function ($scope, $rootScope, $location, $http) {
+app.controller('menuCtrl', function ($scope, $location, $http, seoSrv) {
     
-    $rootScope.pageTitle = 'Listino';
-    $rootScope.metaDescription = '';
-    $rootScope.metaKeywords = '';
-    
-    $http.defaults.cache = cache;
+    seoSrv.set('Menù categorie', '', '');
+    $http.defaults.cache = CACHE;
 
     $scope.detail = function (ID) {
         $location.path('/menu/' + ID);

@@ -1,10 +1,7 @@
-app.controller('menuDetailCtrl', function ($scope, $rootScope, $routeParams, $http) {
+app.controller('menuDetailCtrl', function ($scope, $routeParams, $http, seoSrv) {
 
-    $rootScope.pageTitle = 'Listino';
-    $rootScope.metaDescription = '';
-    $rootScope.metaKeywords = '';
-
-    $http.defaults.cache = cache;
+    seoSrv.set('Menù prodotti', '', '');
+    $http.defaults.cache = CACHE;
     var CategoryID = $routeParams.CategoryID;
 
     $scope.addToCart = function (ID) {

@@ -1,6 +1,6 @@
-var cache = undefined;
+var CACHE = undefined;
 app.run(function ($cacheFactory) {
-    cache = $cacheFactory('dataCache', {
+    CACHE = $cacheFactory('dataCache', {
         capacity: 10
     });
 });
