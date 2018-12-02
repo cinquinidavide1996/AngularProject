@@ -34,3 +34,15 @@
 .c-lightblue {
     color: #007bff;
 }
+
+.bc-whitesmoke {
+    background-color: whitesmoke;
+}
+
+.border-lightgrey {
+    border: 1px solid lightgrey;
+}
+
+.radius {
+    border-radius: 5px;
+}
