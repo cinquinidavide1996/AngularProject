@@ -1,35 +1,36 @@
-<div class="
+<div ng-show="!load" class="
      row
      m-50 
      ">
-    <div class="
-         col-xl-4
-         col-lg-4
-         col-md-3
-         col-sm-2
-         ">
-
-    </div>
-    <div class="
-         col-xl-4
-         col-lg-4
-         col-md-6
-         col-sm-8
-         ">
+    <div>
         <div class="
-             p-20 
-             border-lightgrey
-             bc-whitesmoke 
-             box-shadow
-             radius">
-            <div class="panel center">
-                <h2>
-                    Table Login
-                </h2>
-                <p>
-                    Please enter your email and password
-                </p>
-            </div>
+             col-xl-4
+             col-lg-4
+             col-md-3
+             col-sm-2
+             ">
+
+        </div>
+        <div class="
+             col-xl-4
+             col-lg-4
+             col-md-6
+             col-sm-8
+             ">
+            <div class="
+                 p-20 
+                 border-lightgrey
+                 bc-whitesmoke 
+                 box-shadow
+                 radius">
+                <div class="panel center">
+                    <h2>
+                        Table Login
+                    </h2>
+                    <p>
+                        Please enter your email and password
+                    </p>
+                </div>
                 <div class="form-group">
                     <input 
                         type="email" 
@@ -52,14 +53,25 @@
                     ng-click="login()">
                     Login
                 </button>
+            </div>
+        </div>
+        <div class="
+             col-xl-4
+             col-lg-4
+             col-md-2
+             col-sm-3
+             ">
+
         </div>
     </div>
-    <div class="
-         col-xl-4
-         col-lg-4
-         col-md-2
-         col-sm-3
-         ">
+</div>
+<div
+    ng-show="load"
+    class='m-50'>
+    <i class="
+       fas 
+       fa-circle-notch 
+       fa-spin">
 
-    </div>
+    </i> <label>loading ...</label>
 </div>

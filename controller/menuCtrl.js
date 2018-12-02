@@ -8,9 +8,11 @@ app.controller('menuCtrl', function ($scope, $location, $http, seoSrv) {
     };
 
     $scope.get = function () {
+        $scope.load = true;
         $http.get(URL + "/menu")
                 .then(function (xhr) {
                     $scope.data = xhr.data;
+                    $scope.load = false;
                 });
     };
 

@@ -1,4 +1,4 @@
-<div class="m-15">
+<div ng-show="!load" class="m-15">
     <a 
         class="link" 
         href="#!menu">
@@ -109,5 +109,14 @@
 
         </div>
     </div>
+</div>
+<div
+    ng-show="load"
+    class='m-50'>
+    <i class="
+       fas 
+       fa-circle-notch 
+       fa-spin">
 
+    </i> <label>loading ...</label>
 </div>

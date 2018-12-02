@@ -9,9 +9,11 @@ app.controller('menuDetailCtrl', function ($scope, $routeParams, $http, seoSrv) 
     };
 
     $scope.get = function () {
+        $scope.load = true;
         $http.get(URL + "/menu/" + CategoryID)
                 .then(function (xhr) {
                     $scope.data = xhr.data;
+                    $scope.load = false;
                 });
     };
 

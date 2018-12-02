@@ -5,4 +5,6 @@ app.controller('loginCtrl', function ($scope, $location, $http, seoSrv) {
     $scope.login = function() {
         $location.path('/menu');
     };
+    
+    $scope.load = false;
 });
