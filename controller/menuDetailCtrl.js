@@ -22,7 +22,7 @@ app.controller('menuDetailCtrl', function (
 
     $scope.refresh = function () {
         $http.defaults.cache.remove(URL + "/menu/" + CategoryID);
-        $scope.get(500);
+        $scope.get(200);
     };
 
 
