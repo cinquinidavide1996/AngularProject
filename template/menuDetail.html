@@ -1,4 +1,4 @@
-<div ng-show="!load" class="m-15">
+<div class="m-15">
     <a 
         class="link" 
         href="#!menu">
@@ -26,6 +26,7 @@
 
     <hr>
     <div 
+        ng-show="!load"
         ng-repeat="(k,d) in data" 
         class="row pt-20">
         <div class="
@@ -109,14 +110,15 @@
 
         </div>
     </div>
-</div>
-<div
-    ng-show="load"
-    class='m-50'>
-    <i class="
-       fas 
-       fa-circle-notch 
-       fa-spin">
+    <div
+        ng-show="load"
+        class='center mt-100'>
+        <i class="
+           fas 
+           fa-circle-notch 
+           fa-spin
+           fa-6x">
 
-    </i> <label>loading ...</label>
+        </i>
+    </div>
 </div>
