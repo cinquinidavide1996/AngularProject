@@ -3,14 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/AngularProject/public/css/main.css</file>
-            <file>file:/C:/xampp/htdocs/AngularProject/public/css/padding.css</file>
-            <file>file:/C:/xampp/htdocs/AngularProject/public/css/margin.css</file>
-            <file>file:/C:/xampp/htdocs/AngularProject/public/lib/Bootstrap/bootstrap.min.css</file>
-            <file>file:/C:/xampp/htdocs/AngularProject/index.html</file>
-            <file>file:/C:/xampp/htdocs/AngularProject/template/categoryDetail.html</file>
-            <file>file:/C:/xampp/htdocs/AngularProject/route/route.js</file>
-            <file>file:/C:/xampp/htdocs/AngularProject/template/category.html</file>
+            <file>file:/C:/xampp/htdocs/AngularProject/server/main.js</file>
+            <file>file:/C:/xampp/htdocs/AngularProject/template/menuDetail.html</file>
+            <file>file:/C:/xampp/htdocs/AngularProject/controller/menuDetailCtrl.js</file>
         </group>
     </open-files>
 </project-private>
